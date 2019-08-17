@@ -1,5 +1,5 @@
-
 version: 0.2
+
 phases:
  pre_build:
  commands:
@@ -22,7 +22,6 @@ REPOSITORY_URI={ECR-API-REPO-URL}
  - docker push $REPOSITORY_URI:latest
  - docker push $REPOSITORY_URI:$IMAGE_TAG
  - echo Writing image definitions file...
- - printf '[{"name":"api-container","imageUri":"%s"}]'
-$REPOSITORY_URI:$IMAGE_TAG > MyFilename.json
+ - printf '[{"name":"api-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > MyFilename.json
 artifacts:
  files: MyFilename.json
